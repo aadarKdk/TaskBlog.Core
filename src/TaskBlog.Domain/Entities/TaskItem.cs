@@ -1,5 +1,4 @@
 using TaskBlog.Domain.Entities;
-using TaskBlog.Domain.Enums;
 
 public class TaskItem : BaseEntity
 {
