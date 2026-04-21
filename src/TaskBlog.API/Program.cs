@@ -1,6 +1,8 @@
 using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Options;
+using TaskBlog.Application.Interfaces;
+using TaskBlog.Application.Services;
 using TaskBlog.Infrastructure.Data;
+using TaskBlog.Infrastructure.Repositories;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -9,6 +11,9 @@ builder.Services.AddDbContext<AppDbContext>(options =>
 );
 
 builder.Services.AddControllers();
+
+builder.Services.AddScoped<ITaskRepository, TaskRepository>();
+builder.Services.AddScoped<ITaskService, TaskService>();
 
 var app = builder.Build();
 
